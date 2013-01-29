@@ -43,7 +43,8 @@ class ConcatCommand(sublime_plugin.TextCommand):
                     try:
                         f = open(path + '/' + included)
                         file_content = f.read()
-                        new_view.replace(edit, i, file_content)
+                        encoded_file = unicode(file_content, "utf-8")
+                        new_view.replace(edit, i, encoded_file)
                         f.close()
                     except IOError:
                         print 'cannot open', included
