@@ -14,7 +14,7 @@ class ConcatCommand(sublime_plugin.TextCommand):
         extension = full_name.split('.')[-1]
         file_name = '.'.join(full_name.split('.')[0:-1])
 
-        test = '/{0,2}@import url\(\'(.+)\'\);'
+        test = '/{0,2}@import url\( *\'(.+)\' *\);'
         i = self.view.find(test, 0)
         if i:
             new_view = window.new_file()
